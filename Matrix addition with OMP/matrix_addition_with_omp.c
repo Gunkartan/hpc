@@ -6,22 +6,29 @@ int main() {
     FILE *fa = fopen("small_matrix_a.txt", "r");
     FILE *fb = fopen("small_matrix_b.txt", "r");
     FILE *fc = fopen("small_result.txt", "w");
+
+    if (fa == NULL || fb == NULL || fc == NULL) {
+        printf("Error opening the files\n");
+
+        return 1;
+    }
+    
     int rows, cols;
     fscanf(fa, "%d %d", &rows, &cols);
     fscanf(fb, "%d %d", &rows, &cols);
-    int a[rows][cols];
-    int b[rows][cols];
-    int c[rows][cols];
+    double a[rows][cols];
+    double b[rows][cols];
+    double c[rows][cols];
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            fscanf(fa, "%d", &a[i][j]);
+            fscanf(fa, "%lf", &a[i][j]);
         }
     }
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            fscanf(fb, "%d", &b[i][j]);
+            fscanf(fb, "%lf", &b[i][j]);
         }
     }
 
@@ -37,7 +44,7 @@ int main() {
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            fprintf(fc, "%d", c[i][j]);
+            fprintf(fc, "%.3f ", c[i][j]);
         }
 
         fprintf(fc, "\n");
