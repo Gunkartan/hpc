@@ -54,7 +54,7 @@ int main() {
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            fprintf(fc, "%.3f ", c[i][j]);
+            fprintf(fc, "%.1f ", c[i][j]);
         }
 
         fprintf(fc, "\n");
