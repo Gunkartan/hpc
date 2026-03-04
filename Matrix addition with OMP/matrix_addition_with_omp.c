@@ -29,18 +29,14 @@ int main() {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             fscanf(fa, "%lf", &a[i][j]);
-            fscanf(fa, "%lf", &a[i][j]);
         }
     }
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             fscanf(fb, "%lf", &b[i][j]);
-            fscanf(fb, "%lf", &b[i][j]);
         }
     }
-
-    double start = omp_get_wtime();
 
     double start = omp_get_wtime();
 
@@ -54,13 +50,10 @@ int main() {
 
     double end = omp_get_wtime();
     printf("The execution time is %f seconds\n", end - start);
-    double end = omp_get_wtime();
-    printf("The execution time is %f seconds\n", end - start);
     fprintf(fc, "%d %d\n", rows, cols);
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            fprintf(fc, "%.3f ", c[i][j]);
             fprintf(fc, "%.3f ", c[i][j]);
         }
 
