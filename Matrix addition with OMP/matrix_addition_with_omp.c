@@ -12,7 +12,7 @@ int main() {
 
         return 1;
     }
-    
+
     int rows, cols;
     fscanf(fa, "%d %d", &rows, &cols);
     fscanf(fb, "%d %d", &rows, &cols);
@@ -32,6 +32,8 @@ int main() {
         }
     }
 
+    double start = omp_get_wtime();
+
     #pragma omp parallel for collapse(2)
 
     for (int i = 0; i < rows; i++) {
@@ -40,6 +42,8 @@ int main() {
         }
     }
 
+    double end = omp_get_wtime();
+    printf("The execution time is %f seconds\n", end - start);
     fprintf(fc, "%d %d\n", rows, cols);
 
     for (int i = 0; i < rows; i++) {
