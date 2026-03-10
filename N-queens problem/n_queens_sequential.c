@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <omp.h>
 
 int is_safe(int board[], int col, int row) {
     for (int i = 0; i < col; i++) {
@@ -44,8 +45,11 @@ int main() {
     }
 
     long long solutions = 0;
+    double start = omp_get_wtime();
     solve_n_queens(board, 0, n, &solutions);
+    double end = omp_get_wtime();
     printf("The total number of solutions with N being %d is %lld\n", n, solutions);
+    printf("The total runtime is %f seconds\n", end - start);
     free(board);
 
     return 0;
